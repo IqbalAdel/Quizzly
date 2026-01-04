@@ -35,6 +35,3 @@ class QuizSerializer(serializers.ModelSerializer):
                   'video_url',
                   'questions']
         read_only_fields = ['video_url']
-
-
-# URL = 'https://www.youtube.com/watch?v=BaW_jenozKc'

@@ -79,8 +79,6 @@ class CookieTokenObtainPairView(TokenObtainPairView):
         
             response.data = {
                 "detail": "Login successfully.",
-                # "access": access,
-                # "refresh": refresh,
                 "user": {
                     "id": user.id,
                     "username": user.username,

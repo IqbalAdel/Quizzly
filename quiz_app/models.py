@@ -8,7 +8,6 @@ class Quiz(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     video_url = models.URLField(null=False, blank=False, default='')
     creator = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='quizzes')
-    # flush data before migration
 
     def __str__(self):
         return self.title
