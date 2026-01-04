@@ -28,6 +28,9 @@ class QuizCreateView(generics.CreateAPIView):
         serializer.is_valid(raise_exception=True)
         url = serializer.validated_data["video_url"]
 
+        if url.startswith("https://youtu.be/"):
+            url = url.split("?")[0].replace("youtu.be/", "www.youtube.com/watch?v=")
+
         import tempfile, yt_dlp, os
         from ..models import Question
 
