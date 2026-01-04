@@ -13,9 +13,9 @@ class RegistrationSerializer(serializers.ModelSerializer):
         username (str): username of the user.
         email (str): Email address of the user. Must be unique.
         password (str): User's password. Write-only.
-        repeated_password (str): Confirmation of the password. Write-only; must match `password`.
+        confirmed_password (str): Confirmation of the password. Write-only; must match `password`.
     """
-    repeated_password = serializers.CharField(write_only=True)
+    confirmed_password = serializers.CharField(write_only=True)
 
     class Meta:
         model = User

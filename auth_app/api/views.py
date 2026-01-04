@@ -7,6 +7,7 @@ from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
+from rest_framework_simplejwt.tokens import RefreshToken
 
 class CookieTokenRefreshView(TokenRefreshView):
     """
@@ -58,9 +59,9 @@ class CookieTokenObtainPairView(TokenObtainPairView):
             return Response(serializer.errors, status=status.HTTP_401_UNAUTHORIZED)
         else:
             response = super().post(request, *args, **kwargs)
-            access = response.data.get('access')
-            refresh = response.data.get('refresh')
             user = serializer.validated_data.get('user')
+            access = RefreshToken.for_user(user).access_token
+            refresh = RefreshToken.for_user(user)
             response.set_cookie(
                 key='access_token',
                 value=access,
@@ -78,6 +79,8 @@ class CookieTokenObtainPairView(TokenObtainPairView):
         
             response.data = {
                 "detail": "Login successfully.",
+                # "access": access,
+                # "refresh": refresh,
                 "user": {
                     "id": user.id,
                     "username": user.username,
