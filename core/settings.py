@@ -136,8 +136,3 @@ SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=15),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
 }
-SIMPLE_JWT = {
-    "AUTH_COOKIE": "access_token",
-}
-CORS_ALLOW_CREDENTIALS = True
-secure=False

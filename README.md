@@ -22,7 +22,7 @@ Before starting, make sure you have:
 
 | Requirement | Description |
 |--------------|-------------|
-| **Python ≥ 3.10** | Required to run Django |
+| **Python ≥ 3.12** | Required to run Django |
 | **pip** | Python's package manager |
 | **git** | To clone this repository |
 | **ffmpeg** | Required for audio extraction from YouTube videos |
