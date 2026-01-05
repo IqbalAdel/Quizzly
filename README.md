@@ -74,11 +74,37 @@ sudo apt install ffmpeg
 
 ### 5️⃣ Configure environment variables
 Create a `.env` file in the project root:
+
+#### 🪟 On Windows
+```cmd
+copy .env.template .env
 ```
-GEMINI_API_KEY=your_google_gemini_api_key_here
+Or manually create the file:
+```cmd
+echo GENAI_API_KEY=your_google_gemini_api_key_here > .env
+echo SECRET_KEY=your_django_secret_key >> .env
+echo DEBUG=True >> .env
+```
+
+#### 🍎 On macOS / 🐧 On Linux
+```bash
+cp .env.template .env
+```
+Or manually create the file:
+```bash
+cat > .env << EOF
+GENAI_API_KEY=your_google_gemini_api_key_here
 SECRET_KEY=your_django_secret_key
 DEBUG=True
+EOF
 ```
+
+**Required environment variables:**
+- `GENAI_API_KEY` - Your Google Gemini API key (get one at [Google AI Studio](https://ai.google.dev/))
+- `SECRET_KEY` - Django secret key (generate with `python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"`)
+- `DEBUG` - Set to `True` for development, `False` for production
+
+**Note:** Never commit your `.env` file to version control. Add it to `.gitignore`.
 
 ### 6️⃣ Set up the database
 Create all required tables:
