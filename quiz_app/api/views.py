@@ -7,7 +7,6 @@ from google import genai
 import json, re
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework import mixins, viewsets
-from .permissions import isCreatorOrReadOnly
 import os
 from dotenv import load_dotenv
 load_dotenv()
@@ -134,4 +133,11 @@ class QuizViewSet(ListRetrieveUpdateDestroyViewSet):
     """
     queryset = Quiz.objects.all()
     serializer_class = QuizSerializer
-    permission_classes = [isCreatorOrReadOnly]
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        """
+        Return quizzes created by the authenticated user.
+        """
+
+        return Quiz.objects.filter(creator=self.request.user)
