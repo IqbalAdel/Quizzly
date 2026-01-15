@@ -2,7 +2,8 @@
 
 A **Django REST Framework** based backend that automatically generates quizzes from YouTube videos.  
 Users provide a YouTube URL, the system transcribes the audio using Whisper AI, and generates quiz questions using Google's Gemini AI.  
-This project provides a **fully functional REST API** ready to connect to a frontend (e.g. Angular, React, or Vue).
+This project provides a **fully functional REST API** ready to connect to a frontend (e.g. Angular, React, or Vue). 
+The Frontend is provided by the Developer Akademie and can be found here: https://github.com/Developer-Akademie-Backendkurs/project.Quizly
 
 ---
 
@@ -30,6 +31,8 @@ Before starting, make sure you have:
 | **Google Gemini API Key** | For AI quiz generation |
 
 ---
+
+
 
 ## 💻 Setup Instructions (All Operating Systems)
 
